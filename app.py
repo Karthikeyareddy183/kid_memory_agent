@@ -16,7 +16,7 @@ st.set_page_config(page_title="Kid Memory Assistant", layout="centered")
 load_dotenv()
 
 # --- Configuration ---
-MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
+MISTRAL_API_KEY = st.secrets["mistral"]["api_key"]
 if not MISTRAL_API_KEY:
     st.error(
         "MISTRAL_API_KEY not found in environment variables. Please set it in a .env file.")
