@@ -11,9 +11,6 @@ from langgraph.graph.message import add_messages
 st.set_page_config(page_title="Kid Memory Assistant", layout="centered")
 # --- END FIX ---
 
-# Load environment variables from .env file
-load_dotenv()
-
 # --- Configuration ---
 MISTRAL_API_KEY = st.secrets["mistral"]["api_key"]
 if not MISTRAL_API_KEY:
