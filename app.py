@@ -2,7 +2,6 @@ import os
 import json
 import streamlit as st  # Import Streamlit
 from typing import List, Dict, Annotated, TypedDict, Any
-from dotenv import load_dotenv
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
 from langchain_mistralai import ChatMistralAI
 from langgraph.graph import StateGraph, END
