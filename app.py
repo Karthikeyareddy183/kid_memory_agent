@@ -75,11 +75,13 @@ def extract_and_update_identities(state: KidMemoryState, config: Dict[str, Any])
     - Names of "friends" (extract as a list of names if multiple are mentioned, e.g., ["Sarah", "Tom"])
     - Names of "family_members" (extract as a list of names, specifying relationship if known, e.g., ["Mom (Jane)", "Sister (Emily)"])
     - Any other general "interests" or "things_enjoyed" (describe the topic or item, e.g., "playing with blocks", "drawing").
+    - **"dislikes"**: (Crucially, extract as a list of specific items, activities, or topics the child expresses strong aversion towards. Look for phrases like "I don't like...", "I hate...", "it's boring", "it's bad", "not fun", "this is yucky". Infer the subject of the dislike if it's clear from context. For example, if the child says "This game is boring", extract "boring games". If they say "I don't like broccoli", extract "broccoli".)
 
     If information is mentioned, extract it using the suggested key. If not, omit the key.
-    For names of friends/family, consolidate them into a list.
+    For names of friends/family/dislikes/interests, consolidate them into a list if multiple are mentioned.
     For general interests/things_enjoyed, if multiple are mentioned, make it a list.
 
+    
     Return the extracted information as a JSON object.
     Example: {{"name": "Leo", "age": "5", "favorite_color": "blue", "favorite_tv_show": "Paw Patrol", "friends": ["Sarah", "Tom"], "family_members": ["Mom (Jane)", "Dad (John)"], "interests": ["playing outside", "drawing", "building castles"]}}
 
