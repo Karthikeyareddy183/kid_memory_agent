@@ -12,7 +12,8 @@ st.set_page_config(page_title="Kid Memory Assistant", layout="centered")
 # --- END FIX ---
 
 # --- Configuration ---
-MISTRAL_API_KEY = st.secrets["mistral"]["api_key"]
+MISTRAL_API_KEY = st.secrets.get(
+    "MISTRAL_API_KEY")
 if not MISTRAL_API_KEY:
     st.error(
         "MISTRAL_API_KEY not found in environment variables. Please set it in a .env file.")
@@ -61,7 +62,7 @@ def extract_and_update_identities(state: KidMemoryState, config: Dict[str, Any])
     # --- END NEW LOGIC ---
 
     if not latest_message_content:
-        return {"kid_profile": current_kid_profile}
+        return {"messages": messages, "kid_profile": current_kid_profile}
 
     extraction_prompt = f"""
     You are an intelligent assistant. Your task is to extract all factual information and **any expressed preferences** (things a child states they 'like', 'love', 'enjoy', or mention as their 'favorite') about a child from the following conversation snippet.
