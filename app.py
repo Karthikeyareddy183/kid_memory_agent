@@ -116,7 +116,7 @@ def extract_and_update_identities(state: KidMemoryState, config: Dict[str, Any])
         else:
             updated_profile[key] = value
 
-    return {"kid_profile": updated_profile}
+    return {"messages": messages, "kid_profile": updated_profile}
 
 
 def generate_response(state: KidMemoryState) -> KidMemoryState:
