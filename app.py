@@ -150,9 +150,9 @@ def generate_response(state: KidMemoryState) -> KidMemoryState:
     try:
         response = llm.invoke(llm_input_messages)
     except Exception as e:
-        pass
+        st.error(f"LLM error: {e}")  # Show the real error in the UI
 
-    return {"messages": [response]}
+    return {"messages": [response], "kid_profile": kid_profile}
 
 
 # --- 3. Build Your LangGraph ---
