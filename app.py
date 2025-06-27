@@ -25,7 +25,7 @@ if not MISTRAL_API_KEY:
 @st.cache_resource
 def get_llm():
     """Caches and returns the initialized Mistral LLM."""
-    return ChatMistralAI(api_key=MISTRAL_API_KEY, model="mistral-8x7b", temperature=0.9)
+    return ChatMistralAI(api_key=MISTRAL_API_KEY, model="mistral-large-latest", temperature=0.9)
 
 
 llm = get_llm()
